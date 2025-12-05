@@ -25,7 +25,6 @@ public class ImageApp
     Picture recoloredImg = new Picture(pictureFile);
     Pixel[][] recoloredPixels = recoloredImg.getPixels2D();
 
-    /* to be implemented */
     for (Pixel[] subPixels : recoloredPixels) {
       for (Pixel pixel : subPixels) {
         pixel.setRed(pixel.getBlue());
@@ -39,7 +38,6 @@ public class ImageApp
     Picture negImg = new Picture(pictureFile);
     Pixel[][] negPixels = negImg.getPixels2D();
 
-    /* to be implemented */
     for (Pixel[] subPixels : negPixels) {
       for (Pixel pixel : subPixels) {
         pixel.setRed(255-pixel.getRed());
@@ -59,15 +57,16 @@ public class ImageApp
       }
     }
     // grayscaleImg.explore();
-    /* to be implemented */
 
     // Image #4 Using the original image and pixels, rotate it 180 degrees
     Picture upsidedownImage = new Picture(pictureFile);
     Pixel[][] upsideDownPixels = upsidedownImage.getPixels2D();
- 
-      
-    /* to be implemented */
-
+    for (int i = 0; i < upsideDownPixels.length; i++) {
+      for (int j = 0; j < upsideDownPixels[i].length; j++) {
+        upsideDownPixels[i][j] = upsideDownPixels[j][i];
+      }
+    }
+    upsidedownImage.explore();
     // Image #5 Using the original image and pixels, rotate image 90
     Picture rotateImg = new Picture(pictureFile);
     Pixel[][] rotatePixels = rotateImg.getPixels2D();
