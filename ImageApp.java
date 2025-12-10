@@ -128,13 +128,30 @@ public class ImageApp
 
 
 
-    // for testing  2D algorithms
-    int[][] test1 = { { 1, 2, 3, 4 },
-        { 5, 6, 7, 8 },
-        { 9, 10, 11, 12 },
-        { 13, 14, 15, 16 } };
-    int[][] test2 = new int[4][4];
-    
+    // ===== MATRIX AND VECTOR TESTS =====
+    System.out.println("\n=== Vector1by2.dot() Test ===");
+    Vector1by2 v1 = new Vector1by2(1, 3);
+    Vector1by2 v2 = new Vector1by2(4, 2);
+    double dotResult = Vector1by2.dot(v1, v2);
+    System.out.println("dot([1, 3], [4, 2]) = " + dotResult + " (expected: 10.0)");
+
+    System.out.println("\n=== Matrix2by2.multiply() Test ===");
+    Matrix2by2 m1 = new Matrix2by2(1, 2, 3, 4);
+    Matrix2by2 m2 = new Matrix2by2(2, 0, 1, 2);
+    Matrix2by2 mResult = Matrix2by2.multiply(m1, m2);
+    System.out.println("m1 = " + m1);
+    System.out.println("m2 = " + m2);
+    System.out.println("m1 * m2 = " + mResult);
+    System.out.println("(expected: [[4.0, 4.0], [10.0, 8.0]])");
+
+    System.out.println("\n=== Vector1by2.multiply(Vector, Matrix) Test ===");
+    Vector1by2 row = new Vector1by2(1, 2);
+    Matrix2by2 mat = new Matrix2by2(3, 4, 5, 6);
+    Vector1by2 vResult = Vector1by2.multiply(row, mat);
+    System.out.println("row = " + row);
+    System.out.println("matrix = " + mat);
+    System.out.println("[1, 2] * matrix = " + vResult);
+    System.out.println("(expected: [13.0, 16.0])");
 
   }
 }
